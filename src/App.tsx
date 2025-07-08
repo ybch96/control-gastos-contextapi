@@ -18,7 +18,6 @@ function App() {
   }, [state.expense]);
 
   const isValidBudget = useMemo(() => state.budget > 0, [state.budget]);
-  console.log(isValidBudget);
   return (
     <>
       <header className="bg-blue-600 py-8 max-h-72">

@@ -41,7 +41,6 @@ export default function BudgetForm() {
         />
       </div>
       <input type="submit" value="Definir presupuesto" disabled={!isValid} className="bg-blue-600 hover:bg-blue-700 cursor-pointer w-full p-2 text-white font-black uppercase disabled:opacity-10" />
-    <h1>{budget}</h1>
 
     </form>
   );
