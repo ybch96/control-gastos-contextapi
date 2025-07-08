@@ -4,7 +4,10 @@ import ExpenseDetails from "./ExpenseDetails";
 
 export default function ExpenseList() {
   const { state } = useBudget();
-  const isvalid = useMemo(() => state.expense.length === 0, [state.expense]);
+
+  const expenseFilter = state.currentFilter ? state.expense.filter(expense => expense.category === state.currentFilter) : state.expense
+
+  const isvalid = useMemo(() => expenseFilter.length === 0, [expenseFilter.length]);
   return isvalid ? (
     <p className="text-gray-600 text-2xl font-bold max-w-4xl mx-auto text-center">
       No hay nada que mostrar
@@ -14,7 +17,7 @@ export default function ExpenseList() {
       <p className="text-gray-600 text-center text-2xl font-bold ">
         Listado de gastos
       </p>
-      {state.expense.map((expense) => (
+      {expenseFilter.map((expense) => (
         <ExpenseDetails key={expense.id} expense={expense} />
       ))}
     </div>
